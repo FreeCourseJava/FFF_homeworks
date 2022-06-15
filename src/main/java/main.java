@@ -1,12 +1,12 @@
 public class main {
     public static void main(String[] args) {
-        System.out.println(add_deposit(1000000, 500000));
-        char_convert('П', -15);
-        char_convert('A', 100);
-        sheep_count(10000);
-    }
+        System.out.println(addDeposit(1000000, 500000));
+        charConvert('П', -15);
+        charConvert('A', 100);
+        sheepCount(10000);
+        }
 
-    public static int add_deposit (int deposit, int income)
+    public static int addDeposit (int deposit, int income)
     {
         // что может пойти не так:
         // - переполнение суммарного счета
@@ -14,12 +14,12 @@ public class main {
         return deposit+income;
     }
 
-    public static void char_convert(char init_char, int offset)
+    public static void charConvert(char init_char, int offset)
     {
         System.out.println( (char)(init_char + offset));
     }
 
-    public static void sheep_count (int count)
+    public static void sheepCount (int count)
     {
         System.out.println("Результат равен "+count+" овец");
     }
