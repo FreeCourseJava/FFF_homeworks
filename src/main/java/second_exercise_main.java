@@ -1,4 +1,4 @@
-public class main {
+public class second_exercise_main {
     public static void main(String[] args) {
         System.out.println(daysToMsecFromNow(-10L));
         System.out.println(daysToMsecFromNow(2000L));
