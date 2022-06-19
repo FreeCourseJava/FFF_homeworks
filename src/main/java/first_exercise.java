@@ -1,4 +1,4 @@
-public class main {
+public class first_exercise {
     public static void main(String[] args) {
         System.out.println(addDeposit(1000000, 500000));
         charConvert('П', -15);
