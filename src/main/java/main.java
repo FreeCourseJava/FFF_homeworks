@@ -1,28 +1,24 @@
 public class main {
     public static void main(String[] args) {
-        System.out.println(addDeposit(1000000, 500000));
-        charConvert('П', -15);
-        charConvert('A', 100);
-        sheepCount(10000);
+        System.out.println(daysToMsecFromNow(-10L));
+        System.out.println(daysToMsecFromNow(2000L));
+        System.out.println(addDepositUpd(100000, 10000000));
+        System.out.println(addDepositUpd(Integer.MAX_VALUE, 1));
+        System.out.println(addDepositUpd(Integer.MIN_VALUE, -20));
         }
 
-    public static int addDeposit (int deposit, int income)
-    {
-        // что может пойти не так:
-        // - переполнение суммарного счета
-        // - некорректный ввод (отрицательное число)
-        return deposit+income;
+    private static int addDepositUpd(int deposit, int income) {
+        boolean flag = true;
+        int sum = deposit + income;
+        if (deposit > 0 & income > 0 & sum < 0) flag = false;
+        if (deposit < 0 & income < 0 & sum > 0) flag = false;
+        return flag ? sum : 0;
     }
 
-    public static void charConvert(char init_char, int offset)
-    {
-        System.out.println( (char)(init_char + offset));
-    }
-
-    public static void sheepCount (int count)
-    {
-        System.out.println("Результат равен "+count+" овец");
+        private static long daysToMsecFromNow(long days) {
+            long currentMs = System.currentTimeMillis();
+            return currentMs + days * 24L * 60L * 60L * 1000L;
+        }
     }
 
 
-}
