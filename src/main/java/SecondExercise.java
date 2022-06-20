@@ -16,8 +16,12 @@ public class SecondExercise {
 
     private static int addDepositUpd(int deposit, int income) {
         long sum = (long) deposit + (long) income;
-        if (sum > Integer.MAX_VALUE) return 0;
-        if (sum < Integer.MIN_VALUE) return 0;
+        if (sum > Integer.MAX_VALUE) {
+            return 0
+        } ;
+        if (sum < Integer.MIN_VALUE) {
+            return 0
+        } ;
         return deposit + income;
     }
 }
