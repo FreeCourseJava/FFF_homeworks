@@ -9,10 +9,8 @@ public class second_exercise {
 
     private static int addDepositUpd(int deposit, int income) {
         boolean isOwerflow = true;
-        int sum = deposit + income;
-        if (deposit > 0 & income > 0 & sum < 0) isOwerflow = false;
-        if (deposit < 0 & income < 0 & sum > 0) isOwerflow = false;
-        return isOwerflow ? sum : 0;
+        if (Math.abs((long)deposit+(long)income)>Integer.MAX_VALUE) isOwerflow = false;
+        return isOwerflow ? (deposit + income) : 0;
     }
 
     private static long daysToMsecFromNow(long days) {
