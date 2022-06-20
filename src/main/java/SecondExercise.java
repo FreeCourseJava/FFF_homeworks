@@ -1,4 +1,4 @@
-public class second_exercise {
+public class SecondExercise {
     public static void main(String[] args) {
 
         System.out.println(daysToMsecFromNow(-10));
@@ -15,10 +15,10 @@ public class second_exercise {
     }
 
     private static int addDepositUpd(int deposit, int income) {
-        boolean isOwerflow = true;
-        long sum= (long) deposit + (long) income;
-        if ((sum>Integer.MAX_VALUE) || (sum < Integer.MIN_VALUE)) isOwerflow = false;
-        return isOwerflow ? (deposit + income) : 0;
+        long sum = (long) deposit + (long) income;
+        if (sum > Integer.MAX_VALUE) return 0;
+        if (sum < Integer.MIN_VALUE) return 0;
+        return deposit + income;
     }
 }
 
