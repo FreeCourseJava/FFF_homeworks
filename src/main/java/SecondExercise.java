@@ -19,9 +19,9 @@ public class SecondExercise {
         int sumInt = deposit + income;
         if (sumLong == sumInt) {
             return sumInt;
-        } else {
-            return 0;
         }
+        return 0;
+
     }
 }
 
