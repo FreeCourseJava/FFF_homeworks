@@ -2,7 +2,7 @@ public class ThirdExercise {
 
     public static void main(String[] args) {
         System.out.println(arrayChangesToCount(100));
-
+        int[] NullArray = new int[0];
         int[] TatarstanYears = {1992, 1920, 2006, 1990, 1438, 1236, 1458, 1917, 1552, 1708,
                 1445, 1723, 1718, 1551, 1752, 965, 1380, 1891, 1970, 1937};
         int[] TatarstanYears2 = {1801, 1851, 1876, 1886, 1896, 1901, 1906, 1907, 1911, 1913,
@@ -16,20 +16,21 @@ public class ThirdExercise {
         System.out.println(binarySearch(sortedTatarstanYears, 1380));
         System.out.println(binarySearch(sortedTatarstanYears, 1915));
         System.out.println(binarySearch(TatarstanYears2, 1852));
+        System.out.println(binarySearch(NullArray, 2022));
     }
 
     private static int arrayChangesToCount(int size) {
         int[] array = new int[size];
         int counter = 0;
-        for (int i = 1; i <= size; i++) {
-            if (size % i == 0) {
-                array[i - 1] = i;
+        for (int i = 0; i < size; i++) {
+            if (i != 0 && size % i == 0) {
+                array[i] = i;
             } else {
-                array[i - 1] = Integer.MIN_VALUE;
+                array[i] = Integer.MIN_VALUE;
             }
         }
-        for (int i = 1; i <= size; i++) {
-            if (array[i - 1] != Integer.MIN_VALUE) {
+        for (int i = 0; i < size; i++) {
+            if (array[i] != Integer.MIN_VALUE) {
                 counter++;
             }
         }
@@ -39,8 +40,9 @@ public class ThirdExercise {
 
     private static int[] bubbleSort(int[] array) {
         int swap;
-        for (int j = 0; j < (array.length - 1); j++) {
-            for (int i = 0; i < (array.length - j - 1); i++) {
+        int bound = array.length - 1;
+        for (int j = 0; j < bound; j++) {
+            for (int i = 0; i < (bound - j); i++) {
                 if (array[i] > array[i + 1]) {
                     swap = array[i + 1];
                     array[i + 1] = array[i];
@@ -52,6 +54,9 @@ public class ThirdExercise {
     }
 
     public static boolean binarySearch(int[] array, int value) {
+        if (array.length == 0) {
+            return false;
+        }
         int left = 0;
         int right = array.length - 1;
         int key;
