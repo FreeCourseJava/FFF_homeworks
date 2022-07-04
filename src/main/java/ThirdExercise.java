@@ -2,12 +2,12 @@ public class ThirdExercise {
 
     public static void main(String[] args) {
         System.out.println(arrayChangesToCount(100));
-        int[] NullArray = new int[0];
-        int[] TatarstanYears = {1992, 1920, 2006, 1990, 1438, 1236, 1458, 1917, 1552, 1708,
+        int[] nullArray = new int[0];
+        int[] tatarstanYears = {1992, 1920, 2006, 1990, 1438, 1236, 1458, 1917, 1552, 1708,
                 1445, 1723, 1718, 1551, 1752, 965, 1380, 1891, 1970, 1937};
-        int[] TatarstanYears2 = {1801, 1851, 1876, 1886, 1896, 1901, 1906, 1907, 1911, 1913,
+        int[] tatarstanYears2 = {1801, 1851, 1876, 1886, 1896, 1901, 1906, 1907, 1911, 1913,
                 1916, 1921, 1926, 1931, 1936, 1956, 1961, 1966, 1976, 1996};
-        int[] sortedTatarstanYears = bubbleSort(TatarstanYears);
+        int[] sortedTatarstanYears = bubbleSort(tatarstanYears);
         for (int i = 0; i < 20; i++) {
             System.out.println(sortedTatarstanYears[i]);
         }
@@ -15,8 +15,8 @@ public class ThirdExercise {
         System.out.println(binarySearch(sortedTatarstanYears, 965));
         System.out.println(binarySearch(sortedTatarstanYears, 1380));
         System.out.println(binarySearch(sortedTatarstanYears, 1915));
-        System.out.println(binarySearch(TatarstanYears2, 1852));
-        System.out.println(binarySearch(NullArray, 2022));
+        System.out.println(binarySearch(tatarstanYears2, 1852));
+        System.out.println(binarySearch(nullArray, 2022));
     }
 
     private static int arrayChangesToCount(int size) {
