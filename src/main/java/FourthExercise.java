@@ -51,6 +51,7 @@ public class FourthExercise {
     }
 
     private static boolean binarySearchRecursive(int[] array, int value) {
+
         if (array.length == 0) {
             return false;
         }
@@ -58,18 +59,16 @@ public class FourthExercise {
         int left = 0;
         int right = array.length - 1;
         int key = (left + right) / 2;
-        int[] halfArray = new int[key];
-        if (array[key] > value) {
-            System.arraycopy(array, 0, halfArray, 0, key );
-            binarySearchRecursive(halfArray, value);
-        } else if (array[key] < value) {
-            System.arraycopy(array, key , halfArray, 0, key );
-            binarySearchRecursive(halfArray, value);
-        } else {
+
+        if (array[key] == value) {
             return true;
+        } else if (array[key] < value) {
+            left = key + 1;
         }
 
-        return false;
+        int[] halfArray = new int[key];
+        System.arraycopy(array, left, halfArray, 0, key);
+        return binarySearchRecursive(halfArray, value);
 
     }
 
