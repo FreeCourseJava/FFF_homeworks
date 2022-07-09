@@ -14,7 +14,7 @@ public class FourthExercise {
 
     private static int[] cocktailShakerSort(int[] array) {
 
-        if (array.length == 0 || array.length == 1) {
+        if (array.length < 2) {
             return array;
         }
 
