@@ -2,20 +2,20 @@ package fifth;
 
 public class House {
     int number;
-    int area;
+    int width;
+    int length;
 
-    public House() {
-        this.number = 1;
-        this.area = 100;
-    }
 
     public House(int number) {
         this.number = number;
-        this.area = 100;
+        this.length = 100;
+        this.width = 10;
     }
 
-    public House(int number, int area) {
+    public House(int number, int length, int width) {
         this.number = number;
-        this.area = area;
+        this.length = length;
+        this.width = width;
+
     }
 }

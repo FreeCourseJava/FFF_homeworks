@@ -2,15 +2,18 @@ package fifth;
 
 public class Park {
     String name;
-    int area;
+    int length;
+    int width;
 
     public Park() {
         this.name = "Nope";
-        this.area = 0;
+        this.length = 0;
+        this.width = 0;
     }
 
-    public Park(String name, int area) {
+    public Park(String name, int length, int width) {
         this.name = name;
-        this.area = area;
+        this.length = length;
+        this.width = width;
     }
 }
