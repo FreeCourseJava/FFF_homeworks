@@ -1,3 +1,5 @@
+package fifth;
+
 public class Park {
     String name;
     int area;

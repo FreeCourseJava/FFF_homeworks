@@ -1,3 +1,5 @@
+package fifth;
+
 public class Street {
     String name;
     int kadastrNumber;

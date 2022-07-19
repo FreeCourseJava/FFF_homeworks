@@ -1,3 +1,5 @@
+package third;
+
 public class ThirdExercise {
 
     public static void main(String[] args) {

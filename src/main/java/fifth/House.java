@@ -1,3 +1,5 @@
+package fifth;
+
 public class House {
     int number;
     int area;

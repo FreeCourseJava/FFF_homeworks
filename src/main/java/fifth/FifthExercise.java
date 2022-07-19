@@ -1,3 +1,5 @@
+package fifth;
+
 public class FifthExercise {
     public static void main(String[] args) {
         House dom1 = new House(1, 30);
