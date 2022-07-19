@@ -1,3 +1,5 @@
+package fouth;
+
 import java.util.Arrays;
 
 public class FourthExercise {
