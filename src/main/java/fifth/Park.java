@@ -16,4 +16,9 @@ public class Park {
         this.length = length;
         this.width = width;
     }
+
+    public int calcParkArea(){
+        return this.length*this.width;
+    }
+
 }

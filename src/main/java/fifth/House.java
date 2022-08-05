@@ -18,4 +18,8 @@ public class House {
         this.width = width;
 
     }
+
+    public int calcHouseArea(){
+        return this.length*this.width;
+    }
 }
