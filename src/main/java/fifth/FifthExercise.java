@@ -13,7 +13,7 @@ public class FifthExercise {
 
         Street moscowLenin = new Street("Lenina", 5000, 2000, 10,
                 true, housesMoscow, parksLenin);
-        moscowLenin.addHouse(1, 20, 30);
+        moscowLenin.addHouse(dom5);
         System.out.println(moscowLenin.calcHousesArea());
         System.out.println(moscowLenin.calcParksArea());
 
@@ -24,8 +24,7 @@ public class FifthExercise {
         Street[] moscowStreet = {moscowLenin, moscowBasmannaya};
 
         City moscow = new City("Moscow", 12000000, 2511, moscowStreet);
-        moscow.addStreet("Проектируемый проез №2456", 456,567,34,
-                false,null,null);
+        moscow.addStreet(moscowLenin);
         System.out.println(moscow.calcHousesNumber());
 
 
@@ -39,7 +38,7 @@ public class FifthExercise {
         Street lost = new Street("Lost", housesNoBurg, parksNoBurg);
         Street empty = new Street("Empty", null, null);
         System.out.println(empty.calcHousesArea());
-        empty.addHouse(1, 20, 30);
+        empty.addHouse(dom5);
 
 
         Street[] noBurgStreet = {lost, empty};

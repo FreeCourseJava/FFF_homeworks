@@ -14,12 +14,10 @@ public class City {
         this.streets = streets;
     }
 
-    public void addStreet(String name, int kadastrNumber, int length, int meanWidth,
-                          boolean isMain, House[] houses, Park[] parks) {
+    public void addStreet(Street streetToAdd) {
         if (this.streets == null) {
             Street[] temporary = new Street[1];
-            temporary[0] = new Street(name, kadastrNumber, length, meanWidth,
-                    isMain, houses, parks);
+            temporary[0] = streetToAdd;
             this.streets = temporary;
         } else {
             int numberOfStreets = this.streets.length;
@@ -27,8 +25,7 @@ public class City {
             for (int i = 0; i < numberOfStreets; i++) {
                 temporary[i] = this.streets[i];
             }
-            temporary[numberOfStreets] = new Street(name, kadastrNumber, length, meanWidth,
-                    isMain, houses, parks);
+            temporary[numberOfStreets] = streetToAdd;
             this.streets = temporary;
         }
     }

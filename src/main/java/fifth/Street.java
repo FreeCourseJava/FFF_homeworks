@@ -30,10 +30,10 @@ public class Street {
         this.parks = parks;
     }
 
-    public void addHouse(int number, int length, int width) {
+    public void addHouse(House houseToAdd) {
         if (this.houses == null) {
             House[] temporary = new House[1];
-            temporary[0] = new House(number, length, width);
+            temporary[0] = houseToAdd;
             this.houses = temporary;
         } else {
             int numberOfHouses = this.houses.length;
@@ -41,7 +41,7 @@ public class Street {
             for (int i = 0; i < numberOfHouses; i++) {
                 temporary[i] = this.houses[i];
             }
-            temporary[numberOfHouses] = new House(number, length, width);
+            temporary[numberOfHouses] = houseToAdd;
             this.houses = temporary;
         }
     }
