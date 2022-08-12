@@ -1,24 +1,17 @@
 package fifth;
 
-public class Park {
-    String name;
-    int length;
-    int width;
+public class Park extends Measureable {
+    private String name;
+
 
     public Park() {
+        super(0, 0);
         this.name = "Nope";
-        this.length = 0;
-        this.width = 0;
     }
 
     public Park(String name, int length, int width) {
+        super(length, width);
         this.name = name;
-        this.length = length;
-        this.width = width;
-    }
-
-    public int calcParkArea(){
-        return this.length*this.width;
     }
 
 }

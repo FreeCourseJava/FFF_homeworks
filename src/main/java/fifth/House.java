@@ -1,25 +1,16 @@
 package fifth;
 
-public class House {
-    int number;
-    int width;
-    int length;
-
+public class House extends Measureable {
+    private int number;
 
     public House(int number) {
+        super(10, 100);
         this.number = number;
-        this.length = 100;
-        this.width = 10;
     }
 
     public House(int number, int length, int width) {
+        super(length, width);
         this.number = number;
-        this.length = length;
-        this.width = width;
-
     }
 
-    public int calcHouseArea(){
-        return this.length*this.width;
-    }
 }
