@@ -27,7 +27,7 @@ public class Street extends Measureable {
 
     public void addHouse(House houseToAdd) {
         houses.addToArray(houseToAdd);
-        }
+    }
 
     public void addPark(Park parkToAdd) {
         parks.addToArray(parkToAdd);
@@ -40,8 +40,7 @@ public class Street extends Measureable {
         int numberOfHouses = this.houses.length();
         int sumArea = 0;
         for (int i = 0; i < numberOfHouses; i++) {
-            House temp = (House) this.houses.getFromArray(i);
-            sumArea = sumArea + temp.calcArea();
+            sumArea = sumArea + this.houses.getFromArray(i).calcArea();
         }
         return sumArea;
     }
@@ -50,8 +49,7 @@ public class Street extends Measureable {
         int numberOfParks = this.parks.length();
         int sumArea = 0;
         for (int i = 0; i < numberOfParks; i++) {
-            Park temp = (Park) this.parks.getFromArray(i);
-            sumArea = sumArea + temp.calcArea();
+            sumArea = sumArea + this.parks.getFromArray(i).calcArea();
         }
         return sumArea;
     }
