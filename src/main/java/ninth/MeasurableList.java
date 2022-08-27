@@ -14,4 +14,6 @@ public interface MeasurableList {
 
     void add(Measureable measureable);
 
+    int length();
+
 }

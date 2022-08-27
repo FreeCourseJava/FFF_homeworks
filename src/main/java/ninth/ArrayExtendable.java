@@ -5,7 +5,6 @@ import fifth.Measureable;
 public class ArrayExtendable implements MeasurableList {
 
     private Measureable[] current = null;
-    private int size = 0;
 
     @Override
     public void add(Measureable objectToAdd) {
@@ -14,7 +13,7 @@ public class ArrayExtendable implements MeasurableList {
             temporary[0] = objectToAdd;
             this.current = temporary;
         } else {
-            int numberOfObjects = this.size;
+            int numberOfObjects = this.current.length;
             Measureable[] temporary = new Measureable[numberOfObjects + 1];
             if (numberOfObjects >= 0) {
                 System.arraycopy(this.current, 0, temporary, 0, numberOfObjects);
@@ -22,12 +21,11 @@ public class ArrayExtendable implements MeasurableList {
             temporary[numberOfObjects] = objectToAdd;
             this.current = temporary;
         }
-        this.size++;
     }
 
     @Override
     public Measureable get(int index) {
-        if ((index >= 0) && (index < this.size)) {
+        if ((index >= 0) && (index < this.current.length)) {
             return this.current[index];
         } else {
             return null;
@@ -39,7 +37,7 @@ public class ArrayExtendable implements MeasurableList {
         if (this.current == null) {
             return false;
         }
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < this.current.length; i++) {
             if (objectToFind == this.current[i]) {
                 return true;
             }
@@ -51,7 +49,7 @@ public class ArrayExtendable implements MeasurableList {
         if (this.current == null) {
             return -1;
         }
-        for (int i = 0; i < this.size; i++) {
+        for (int i = 0; i < this.current.length; i++) {
             if (objectToFind == this.current[i]) {
                 return i;
             }
@@ -61,14 +59,13 @@ public class ArrayExtendable implements MeasurableList {
 
     @Override
     public void remove(int index) {
-        if ((index < 0) || (index > (this.size - 1)) || (this.current == null)) {
+        if ((this.current == null) || (index < 0) || (index > (this.current.length - 1))) {
             return;
         }
-        Measureable[] temporary = new Measureable[this.size - 1];
+        Measureable[] temporary = new Measureable[this.current.length - 1];
         System.arraycopy(this.current, 0, temporary, 0, index);
-        System.arraycopy(this.current, index + 1, temporary, index, (this.size - 1 - index));
+        System.arraycopy(this.current, index + 1, temporary, index, (this.current.length - 1 - index));
         this.current = temporary;
-        this.size--;
     }
 
     @Override
@@ -79,8 +76,8 @@ public class ArrayExtendable implements MeasurableList {
         }
     }
 
-
+    @Override
     public int length() {
-        return this.size;
+        return this.current.length;
     }
 }

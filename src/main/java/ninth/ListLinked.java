@@ -12,7 +12,8 @@ public class ListLinked implements MeasurableList {
         sizeOfList = 0;
     }
 
-    public int getSize() {
+    @Override
+    public int length() {
         return this.sizeOfList;
     }
 
@@ -31,7 +32,7 @@ public class ListLinked implements MeasurableList {
     @Override
     public Measureable get(int index) {
         Node temp = headOfList;
-        if (((index < 0) || (index > sizeOfList)) || (headOfList.nodeValue == null)) {
+        if ((index < 0) || (index > sizeOfList) || (headOfList.nodeValue == null)) {
             return null;
         }
         for (int i = 0; i < index; i++) {
@@ -75,7 +76,7 @@ public class ListLinked implements MeasurableList {
     public void remove(int index) {
         Node temp = headOfList;
         Node temp2 = temp;
-        if (((index < 0) || (index > sizeOfList)) || (headOfList.nodeValue == null)) {
+        if ((index < 0) || (index > sizeOfList) || (headOfList.nodeValue == null)) {
             return;
         }
         for (int i = 0; i < (index - 1); i++) {
