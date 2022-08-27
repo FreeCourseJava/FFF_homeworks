@@ -20,5 +20,32 @@ public class NinthExercise {
         System.out.println(IntArrayUtils.binarySearch(sortedTatarstanYears, 965));
         System.out.println(IntArrayUtils.binarySearch(sortedTatarstanYears, 1380));
         System.out.println(IntArrayUtils.binarySearch(sortedTatarstanYears, 1915));
+
+        ListLinked housesList = new ListLinked();
+        ArrayExtendable housesArray = new ArrayExtendable();
+
+        House dom1 = new House(1, 30, 20);
+        House dom5 = new House(5, 560, 400);
+        House dom3 = new House(3, 60, 4000);
+        House dom6 = new House(6, 5600, 400);
+
+        housesArray.remove(5);
+        housesArray.add(dom1);
+        housesArray.remove(dom5);
+        housesArray.add(dom5);
+        housesArray.add(dom3);
+        housesArray.remove(dom5);
+        dom5 = (House) housesArray.get(0);
+        System.out.println(housesArray.exists(dom3));
+
+
+        housesList.remove(5);
+        housesList.add(dom1);
+        housesList.remove(dom6);
+        housesList.add(dom6);
+        housesList.add(dom3);
+        housesList.remove(dom6);
+        dom6 = (House) housesList.get(0);
+        System.out.println(housesList.exists(dom1));
     }
 }

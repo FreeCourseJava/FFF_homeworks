@@ -16,6 +16,7 @@ public class ListLinked implements MeasurableList {
         return this.sizeOfList;
     }
 
+    @Override
     public void add(Measureable valueToAdd) {
         if (headOfList.nodeValue == null) {
             headOfList.nodeValue = valueToAdd;
@@ -27,9 +28,10 @@ public class ListLinked implements MeasurableList {
         sizeOfList++;
     }
 
+    @Override
     public Measureable get(int index) {
         Node temp = headOfList;
-        if ((index < 0) & (index > sizeOfList)) {
+        if (((index < 0) || (index > sizeOfList)) || (headOfList.nodeValue == null)) {
             return null;
         }
         for (int i = 0; i < index; i++) {
@@ -50,7 +52,7 @@ public class ListLinked implements MeasurableList {
         return false;
     }
 
-    public int getIndex(Measureable measureable) {
+    private int getIndex(Measureable measureable) {
         Node temp = headOfList;
         for (int i = 0; i < sizeOfList; i++) {
             if (temp.nodeValue == measureable) {
@@ -66,8 +68,6 @@ public class ListLinked implements MeasurableList {
         if (exists(measureable)) {
             int i = getIndex(measureable);
             remove(i);
-        } else {
-            return;
         }
     }
 
@@ -75,16 +75,16 @@ public class ListLinked implements MeasurableList {
     public void remove(int index) {
         Node temp = headOfList;
         Node temp2 = temp;
-        if ((index < 0) & (index > sizeOfList)) {
+        if (((index < 0) || (index > sizeOfList)) || (headOfList.nodeValue == null)) {
             return;
         }
-        for (int i = 0; i < index; i++) {
+        for (int i = 0; i < (index - 1); i++) {
             temp = temp.nodeLink;
         }
         if (index == sizeOfList) {
             temp2.nodeLink = null;
         } else {
-            for (int i = 0; i < (index + 1); i++) {
+            for (int i = 0; i < index; i++) {
                 temp2 = temp2.nodeLink;
             }
         }

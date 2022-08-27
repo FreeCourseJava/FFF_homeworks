@@ -2,6 +2,9 @@ package ninth;
 
 public final class IntArrayUtils {
 
+    private IntArrayUtils(){
+
+    }
     public static int[] bubbleSort(int[] array) {
         int swap;
         int bound = array.length - 1;
