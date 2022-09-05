@@ -29,6 +29,7 @@ public class NinthExercise {
         House dom3 = new House(3, 60, 4000);
         House dom6 = new House(6, 5600, 400);
 
+        System.out.println(housesArray.length());
         housesArray.remove(5);
         housesArray.add(dom1);
         housesArray.remove(dom5);

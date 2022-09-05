@@ -25,11 +25,10 @@ public class ArrayExtendable implements MeasurableList {
 
     @Override
     public Measureable get(int index) {
-        if ((index >= 0) && (index < this.current.length)) {
-            return this.current[index];
-        } else {
+        if ((this.current == null) || (index < 0) || (index >= this.current.length)) {
             return null;
         }
+        return this.current[index];
     }
 
     @Override
@@ -78,6 +77,9 @@ public class ArrayExtendable implements MeasurableList {
 
     @Override
     public int length() {
+        if (this.current == null) {
+            return 0;
+        }
         return this.current.length;
     }
 }
