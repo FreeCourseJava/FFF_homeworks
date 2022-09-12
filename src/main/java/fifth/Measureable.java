@@ -12,4 +12,14 @@ public class Measureable {
     public int calcArea() {
         return length * width;
     }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getLengthMeasureable() {
+        return length;
+    }
+
+
 }
