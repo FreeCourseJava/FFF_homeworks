@@ -19,5 +19,6 @@ public class DictionaryDemo {
         demoDictionary.put(anotherStreetForDictionary, dom5);
         dom = demoDictionary.get(streetForDictionary);
         demoDictionary.put(anotherStreetForDictionary, dom1);
+
     }
 }

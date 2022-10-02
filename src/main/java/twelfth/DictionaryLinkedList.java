@@ -27,7 +27,7 @@ public class DictionaryLinkedList<KEY, VALUE> {
     public DictionaryNode<KEY, VALUE> get(KEY key) {
         DictionaryNode<KEY, VALUE> temp = headOfList;
         do {
-            if (temp.key == key) {
+            if (temp.key.equals(key)) {
                 return temp;
             }
             temp = temp.link;

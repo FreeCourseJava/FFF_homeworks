@@ -23,7 +23,7 @@ public class DictionaryHashTable<KEY, VALUE> implements Dictionary<KEY, VALUE> {
     }
 
     private int getIndex(KEY key) {
-        int hash = key.toString().hashCode();
+        int hash = key.hashCode();
         return (dictionary.length - 1) & hash;
     }
 
