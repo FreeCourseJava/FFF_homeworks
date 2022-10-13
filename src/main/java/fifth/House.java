@@ -13,4 +13,8 @@ public class House extends Measureable {
         this.number = number;
     }
 
+    public int getNumber() {
+        return number;
+    }
+
 }
