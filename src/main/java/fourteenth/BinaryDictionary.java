@@ -10,7 +10,12 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
 
     @Override
     public VALUE get(KEY key) {
-        int hashKey = key.hashCode();
+        int hashKey;
+        if (key == null) {
+            hashKey = 0;
+        } else {
+            hashKey = key.hashCode();
+        }
         if (root == null) {
             return null;
         } else {
@@ -21,25 +26,22 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
                 return temp.collisionSolution.get(key);
             }
             if (temp.key.hashCode() < hashKey) {
-                if (temp.leftChild == null) {
-                    return null;
-                } else {
-                    temp = temp.leftChild;
-                }
+                temp = temp.leftChild;
             } else {
-                if (temp.rightChild == null) {
-                    return null;
-                } else {
-                    temp = temp.rightChild;
-                }
+                temp = temp.rightChild;
             }
-        } while (true);
-
+        } while (temp != null);
+        return null;
     }
 
     @Override
     public void put(KEY key, VALUE value) {
-        int hashKey = key.hashCode();
+        int hashKey;
+        if (key == null) {
+            hashKey = 0;
+        } else {
+            hashKey = key.hashCode();
+        }
         if (root == null) {
             root = new TreeNode<>(key, value);
             return;
@@ -66,7 +68,9 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
                     temp = temp.rightChild;
                 }
             }
-        } while (true);
+        } while (temp.leftChild != null || temp.rightChild == null);
+
+
     }
 
 
