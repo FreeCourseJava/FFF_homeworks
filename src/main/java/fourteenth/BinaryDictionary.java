@@ -37,6 +37,7 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
     @Override
     public void put(KEY key, VALUE value) {
         int hashKey;
+        boolean continueFlag = true;
         if (key == null) {
             hashKey = 0;
         } else {
@@ -50,40 +51,45 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
         }
         do {
             if (temp.key.hashCode() == hashKey) {
-                temp.collisionSolution.put(key, value);
-                return;
+                continueFlag = false;
             }
             if (temp.key.hashCode() < hashKey) {
                 if (temp.leftChild == null) {
-                    temp.leftChild = new TreeNode<>(key, value);
-                    return;
+                    continueFlag = false;
                 } else {
                     temp = temp.leftChild;
                 }
-            } else {
+            }
+            if (temp.key.hashCode() > hashKey) {
                 if (temp.rightChild == null) {
-                    temp.rightChild = new TreeNode<>(key, value);
-                    return;
+                    continueFlag = false;
                 } else {
                     temp = temp.rightChild;
                 }
             }
-        } while (temp.leftChild != null || temp.rightChild == null);
-
-
+        } while (continueFlag);
+        if (temp.key.hashCode() == hashKey) {
+            temp.collisionSolution.put(key, value);
+        }
+        if (temp.key.hashCode() < hashKey) {
+            temp.leftChild = new TreeNode<>(key, value);
+        }
+        if (temp.key.hashCode() > hashKey) {
+            temp.rightChild = new TreeNode<>(key, value);
+        }
     }
 
 
     @Override
     public List<VALUE> filter(ValueFilter<VALUE> valueValueFilter) {
         List<VALUE> filtredList = new LinkedList<>();
-        Iterator<VALUE> filtIterator = iterator();
-        do {
-            VALUE temp = filtIterator.next();
+
+        for (VALUE temp : this) {
             if (valueValueFilter.filter(temp)) {
                 filtredList.add(temp);
             }
-        } while (!filtIterator.hasNext());
+        }
+
         return filtredList;
     }
 
@@ -92,10 +98,9 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
         return new TreeIterator();
     }
 
+
     public class TreeIterator implements Iterator<VALUE> {
-
         Stack<VALUE> valuesToIterate = new Stack<>();
-
 
         public TreeIterator() {
             treeWalk(root);
@@ -104,8 +109,8 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
         private void treeWalk(TreeNode<KEY, VALUE> temp) {
 
             LinkedList<TreeNode<KEY, VALUE>> tempList = new LinkedList<>();
-
             tempList.add(temp);
+
             do {
                 temp = tempList.getLast();
                 for (Map.Entry<KEY, VALUE> entry : temp.collisionSolution.entrySet()) {
@@ -124,12 +129,11 @@ public class BinaryDictionary<KEY, VALUE> implements Dictionary<KEY, VALUE>, Fil
 
         @Override
         public boolean hasNext() {
-            return valuesToIterate.empty();
+            return !valuesToIterate.empty();
         }
 
         @Override
         public VALUE next() {
-
             return valuesToIterate.pop();
         }
 

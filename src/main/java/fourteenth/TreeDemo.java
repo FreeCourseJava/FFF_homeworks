@@ -2,7 +2,6 @@ package fourteenth;
 
 import fifth.House;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class TreeDemo {
@@ -22,12 +21,11 @@ public class TreeDemo {
         System.out.println(demoTree.get("Пятый").getNumber());
         System.out.println(demoTree.get("Пятыйll"));
 
-        Iterator<House> myIterator = demoTree.iterator();
-        do {
-            House temp = myIterator.next();
+
+        for (House temp : demoTree) {
             System.out.println(temp.getNumber());
             System.out.println(temp.hashCode());
-        } while (!myIterator.hasNext());
+        }
 
         ValueFilter<House> myFilter = (v) -> {
             if (v.hashCode() > 500000000) {
@@ -37,9 +35,8 @@ public class TreeDemo {
         };
 
         List<House> filtredList = demoTree.filter(myFilter);
-        for (int i = 0; i < filtredList.size(); i++) {
-            System.out.println(filtredList.get(i).getNumber());
+        for (House temp : filtredList) {
+            System.out.println(temp.getNumber());
         }
-
     }
 }
